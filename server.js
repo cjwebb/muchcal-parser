@@ -4,12 +4,14 @@ var express      = require('express'),
     expValidator = require('express-validator'),
     bodyParser   = require('body-parser'),
     moment       = require('moment'),
+    morgan       = require('morgan'),
     app          = express();
 
 var parser       = require('./app/parser');
 
 var calendarFormat = "YYYY-MM-DD";
 
+app.use(morgan('short'));
 app.use(bodyParser.json());
 app.use(expValidator({
     customValidators: {
